@@ -1,7 +1,7 @@
-# mongo-docker-compose
+# Mongo Sharded Cluseter with Docker Compose
 Based in https://github.com/singram/mongo-docker-compose, 
 
-MongoDb Last version and initialize config with default ports: https://docs.mongodb.com/manual/reference/default-mongodb-port/
+Mongo last version and initialize config with default ports: https://docs.mongodb.com/manual/reference/default-mongodb-port/
 
 This repository provides a fully sharded mongo environment using docker-compose and volume storage.
 
