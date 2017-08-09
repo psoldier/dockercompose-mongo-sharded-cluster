@@ -1,4 +1,4 @@
-# Mongo Sharded Cluseter with Docker Compose
+# Mongo Sharded Cluster with Docker Compose
 Based in https://github.com/singram/mongo-docker-compose, 
 
 Mongo last version and initialize config with default ports: https://docs.mongodb.com/manual/reference/default-mongodb-port/
