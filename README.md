@@ -21,7 +21,7 @@ The MongoDB environment consists of the following docker containers
 ### Install Docker
     https://docs.docker.com/engine/installation/
 
-### Install Docker-compose (1.4.2+)
+### Install Docker-compose
     https://docs.docker.com/compose/install/
 
 ### Check out the repository
@@ -40,6 +40,10 @@ You will need to run the following *once* only to initialize all replica sets an
 
     ./initiate
 
+Stop containers
+
+    ctrl + c
+
 You should now be able connect to mongos1 and the new sharded cluster from the mongos container itself using the mongo shell to connect to the running mongos process
 
     docker exec -it mongos1 mongo
@@ -47,18 +51,8 @@ You should now be able connect to mongos1 and the new sharded cluster from the m
 ## Persistent storage
 Data is stored at Data volumes from Docker
 
-Stop containers
 
-    ctrl + c
+## Remove containers and data volume
 
-##Remove containers and data volume
-   docker-compose down -v
+    docker-compose down -v
 
-## Built upon
- - [Docker-compose wait to start](http://brunorocha.org/python/dealing-with-linked-containers-dependency-in-docker-compose.html)
- - [Bi directional docker commuication](http://abdelrahmanhosny.com/2015/07/01/3-solutions-to-bi-directional-linking-problem-in-docker-compose/)
- - [MongoDB Sharded Cluster by Sebastian Voss](https://github.com/sebastianvoss/docker)
- - [MongoDB](http://www.mongodb.org/)
- - [Mongo Docker ](https://github.com/jacksoncage/mongo-docker)
- - [DnsDock](https://github.com/tonistiigi/dnsdock)
- - [Docker](https://github.com/dotcloud/docker/)
