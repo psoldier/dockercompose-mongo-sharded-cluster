@@ -9,14 +9,14 @@ sleep 2
 
 #shards
 echo "Intializing shard replica set"
-for i in 1 2
+for i in 1 2 3
 do
   shardReplica="rs.initiate({_id: \"mongors${i}\",members: [{ _id: 0, host: \"mongors${i}n1:27018\"},{ _id : 1, host : \"mongors${i}n2:27018\"},{ _id : 2, host : \"mongors${i}n3:27018\" }]}); rs.status();"
   docker exec -it mongors${i}n1 bash -c "echo '${shardReplica}' | mongo --host mongors${i}n1 --port 27018"
 done
 
-sleep 30
+sleep 40
 
 #mongos
-mongosAddShard="sh.addShard(\"mongors1/mongors1n1:27018\"); sh.addShard(\"mongors2/mongors2n1:27018\");"
+mongosAddShard="sh.addShard(\"mongors1/mongors1n1:27018\"); sh.addShard(\"mongors2/mongors2n1:27018\"); sh.addShard(\"mongors3/mongors3n1:27018\");"
 docker exec -it mongos1 bash -c "echo '${mongosAddShard}' | mongo --host mongos1"
