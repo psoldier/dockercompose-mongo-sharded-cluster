@@ -6,6 +6,7 @@ services:
     container_name: mongors1n1
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors1
+    restart: always
     volumes:
       - mongors1n1vol:/data/db
 
@@ -13,6 +14,7 @@ services:
     container_name: mongors1n2
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors1
+    restart: always
     volumes:
       - mongors1n2vol:/data/db
 
@@ -20,6 +22,7 @@ services:
     container_name: mongors1n3
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors1
+    restart: always
     volumes:
       - mongors1n3vol:/data/db
 
@@ -28,6 +31,7 @@ services:
     container_name: mongors2n1
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors2
+    restart: always
     volumes:
       - mongors2n1vol:/data/db
 
@@ -35,6 +39,7 @@ services:
     container_name: mongors2n2
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors2
+    restart: always
     volumes:
       - mongors2n2vol:/data/db
 
@@ -42,6 +47,7 @@ services:
     container_name: mongors2n3
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors2
+    restart: always
     volumes:
       - mongors2n3vol:/data/db
 
@@ -50,6 +56,7 @@ services:
     container_name: mongors3n1
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors3
+    restart: always
     volumes:
       - mongors3n1vol:/data/db
 
@@ -57,6 +64,7 @@ services:
     container_name: mongors3n2
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors3
+    restart: always
     volumes:
       - mongors3n2vol:/data/db
 
@@ -64,6 +72,7 @@ services:
     container_name: mongors3n3
     image: mongo:3.4
     command: mongod --shardsvr --replSet mongors3
+    restart: always
     volumes:
       - mongors3n3vol:/data/db
 
@@ -72,6 +81,7 @@ services:
     container_name: mongocfg1
     image: mongo:3.4
     command: mongod --configsvr --replSet mongoconfg
+    restart: always
     volumes:
       - mongocfg1vol:/data/db
 
@@ -79,6 +89,7 @@ services:
     container_name: mongocfg2
     image: mongo:3.4
     command: mongod --configsvr --replSet mongoconfg
+    restart: always
     volumes:
       - mongocfg2vol:/data/db
 
@@ -86,6 +97,7 @@ services:
     container_name: mongocfg3
     image: mongo:3.4
     command: mongod --configsvr --replSet mongoconfg
+    restart: always
     volumes:
       - mongocfg3vol:/data/db
 
@@ -97,6 +109,7 @@ services:
       - mongocfg2
       - mongocfg3
     command: mongos --configdb mongoconfg/mongocfg1:27019,mongocfg2:27019,mongocfg3:27019
+    restart: always
   
   mongos2:
     container_name: mongos2
@@ -106,6 +119,7 @@ services:
       - mongocfg2
       - mongocfg3
     command: mongos --configdb mongoconfg/mongocfg1:27019,mongocfg2:27019,mongocfg3:27019
+    restart: always
 
 volumes:
   mongors1n1vol:
